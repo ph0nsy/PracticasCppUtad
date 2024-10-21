@@ -1,0 +1,15 @@
+﻿  Practica02.cpp
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,28): warning C4838: la conversión de 'int' en 'char' requiere una conversión de restricción
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,28): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,34): warning C4838: la conversión de 'int' en 'char' requiere una conversión de restricción
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,34): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,40): warning C4838: la conversión de 'int' en 'char' requiere una conversión de restricción
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,40): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,46): warning C4838: la conversión de 'int' en 'char' requiere una conversión de restricción
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(101,46): warning C4309: 'inicializando': truncamiento de valor constante
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(113,10): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 2 tiene el tipo 'unsigned int **'
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(113,10): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 2 de tipo 'unsigned int **'
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(117,10): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 2 tiene el tipo 'unsigned char **'
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(117,10): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 2 de tipo 'unsigned char **'
+C:\Users\alons\Downloads\Practicas\Practica02\Practica02.cpp(9): warning C4172: devolución de dirección de la variable local o temporal: _iOrigen
+  Practica02.vcxproj -> C:\Users\alons\Downloads\Practicas\x64\Debug\Practica02.exe

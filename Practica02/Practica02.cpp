@@ -31,6 +31,15 @@ unsigned char* ObtenerByteMayor_fromTable(unsigned char* iElementoInicial, const
   return mayor;
 }
 
+void InvertirCadena_fromTable(unsigned char* iElementoInicial, const int size) {
+    for (int i = 0; i < size/2; i++) {
+        unsigned char temp = *(iElementoInicial + i);
+        *(iElementoInicial + i) = *(iElementoInicial + size - 1 - i);
+        *(iElementoInicial + size - 1 - i) = temp;
+    }
+    return;
+}
+
 int main()
 {
   /*
@@ -86,7 +95,8 @@ int main()
 
   printf("\n");
 */
-  // Punto 1
+  
+// Punto 1
   const unsigned int iInitialNumber = 0x89abcdef;
   char aEsperados01[4] = { 0xef, 0xcd, 0xab, 0x89 };
 
@@ -108,6 +118,9 @@ int main()
   
   // Punto 4 - Invertir cadena
   unsigned char cCadena[] = { 'a', 'b', 'c', 'd' };
+  printf("La tabla original tiene la forma { %s }\n", cCadena);
+  InvertirCadena_fromTable(&cCadena[0], sizeof(cCadena) / sizeof(char));
+  printf("La tabla invertida tiene la forma { %s }\n", cCadena);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
