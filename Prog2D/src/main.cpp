@@ -1,8 +1,10 @@
+#define _USE_MATH_DEFINES
+
 #include <vec2.h>
 #include <litegfx.h>
 #include <glfw3.h>
 #include <iostream>
-
+#include <cmath>
 
 #define LITE_GFX_IMPLEMENTATION
 #define GLFW_AUTO_ICONIFY GLFW_TRUE
@@ -10,6 +12,10 @@
 #define HEIGHT 900
 #define RECT_SIZE_W 100
 #define RECT_SIZE_H 150
+#define DEGREE_OF_ROT 32
+#define DIST_TO_POINTER 75
+#define Rad2Degree(x) (x*(180/M_PI))
+#define Degree2Rad(x) (x*(M_PI/180))
 
 // GLFW_DONT_CARE
 
@@ -38,12 +44,12 @@ int main() {
 	glfwGetWindowSize(window, &iW, &iH);
 	lgfx_setup2d(iW, iH);
 
-	double *dXpos, *dYpos;
-	*dXpos = *dYpos = 0.0;
+	double	*dXpos = new double(0.0);
+	double *dYpos = new double(0.0);
 	double elapsedTime = 0.0;
 	double deltaTime = 0.0;
-	float distToPointer = 5.0;
-	double angleChangeRatio = Vec2(distToPointer, 0).angle(Vec2(distToPointer-1, 1))/32;
+	glfwGetCursorPos(window, dXpos, dYpos);
+	Vec2* vecPointer = new Vec2(DIST_TO_POINTER, 0);
 
 	while (glfwWindowShouldClose(window)) {
 		// Get current setup
@@ -89,10 +95,12 @@ int main() {
 		lgfx_drawrect(iW / 2 - RECT_SIZE_W / 2, iH / 2 - RECT_SIZE_H / 2, RECT_SIZE_W, RECT_SIZE_H); // Rectangle
 
 		// Cuadrado en las coordenadas del raton
-		lgfx_drawrect(*dXpos / 2 - RECT_SIZE_W / 2, *dYpos / 2 - RECT_SIZE_W / 2, RECT_SIZE_W, RECT_SIZE_W); // Rectangle
+		lgfx_drawrect(*dXpos - RECT_SIZE_W / 2, *dYpos - RECT_SIZE_W / 2, RECT_SIZE_W, RECT_SIZE_W); // Rectangle
 
 		// Circulo rotando 32 º/s alrededor del raton a una distancia x
-		//lgfx_drawoval(); // Oval
+		vecPointer->setX((vecPointer->getX()*cos(Degree2Rad(DEGREE_OF_ROT * deltaTime))) + (vecPointer->getY() * sin(Degree2Rad(DEGREE_OF_ROT * deltaTime))));
+		vecPointer->setY((vecPointer->getY() * sin(Degree2Rad(DEGREE_OF_ROT))) - (vecPointer->getX() * sin(Degree2Rad(DEGREE_OF_ROT))));
+		lgfx_drawoval((*dXpos + vecPointer->getX()) - RECT_SIZE_W / 2, (*dYpos + vecPointer->getY()) - RECT_SIZE_W / 2, RECT_SIZE_W, RECT_SIZE_W); // Oval
 
 		// Añadir iniciales hechas con lineas (AMG)
 

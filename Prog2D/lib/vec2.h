@@ -24,6 +24,11 @@ public:
 	float angle(const Vec2& other) const; // arccos ( dot(other)/(vectorLength()*vectorLength(other)) )
 	float distance(const Vec2& other) const; // length of diference --> absoluteVector(Vec2( x-other.x, y-other.y ))
 
+	void setX(float _x) { x = _x; };
+	void setY(float _y) { y = _y; };
+	float getX() { return x; };
+	float getY() { return y; };
+
 	Vec2 operator+(const Vec2& _vec) { return Vec2(x + _vec.x, y + _vec.y); };
 	Vec2 operator+(const float& _scalar) { return Vec2(x + _scalar, y + _scalar); };
 	Vec2 operator-(const Vec2& _vec) { return Vec2(x - _vec.x, y - _vec.y); };
